@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>papelito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        
+        
+        .container {
+            
+            text-align-last: justify;
+            font-size: 12px; 
+            font-family: Arial, sans-serif;
+            margin-top: 1px; /* Reduce el margen superior del párrafo */
+           
+        }
+        p {
+            margin-right: 1px; /* Espacio entre los párrafos */
+            margin-top: 24px;
+            line-height: 0; /* Controla el interlineado dentro del párrafo */
+            padding: 0;
+        }
+       .borde-especial {
+    border-bottom:1px dashed lightgray;  /* Cambia el estilo del borde inferior */
+}
+
+        .segunda-table {
+            margin-top: 2px; /* Ajusta el espacio superior de la segunda tabla */
+        
+        }
+        .primera-table {
+            border-bottom: 2px dashed black;
+            margin-bottom: 1px; /* Cambia el grosor y color del borde inferior */
+           margin-top: -3px;
+        }
+        .primera-table th:nth-child(1),
+        .primera-table td:nth-child(1) {
+            width: 25%; /* Ancho de la primera columna de la primera tabla */
+        }
+
+        .primera-table th:nth-child(2),
+        .primera-table td:nth-child(2) {
+            width: 15%;
+            text-align: center; /* Ancho de la segunda columna de la primera tabla */
+        }
+        .primera-table th:nth-child(3),
+        .primera-table td:nth-child(3) {
+            width: 15%;
+            text-align: center; /* Ancho de la primera columna de la primera tabla */
+        }
+
+        .primera-table th:nth-child(4),
+        .primera-table td:nth-child(4) {
+            width: 15%;
+            text-align: center; /* Ancho de la segunda columna de la primera tabla */
+        }
+        .primera-table th:nth-child(5),
+        .primera-table td:nth-child(5) {
+            width: 20%;
+            text-align: right;
+        }
+       .tabla_total-table th:nth-child(1),
+        .tabla_total-table td:nth-child(1) {
+            width: 200px;
+            text-align: right; /* Modificar el ancho de la primera columna */
+        }
+
+        .tabla_total-table th:nth-child(2),
+        .tabla_total-table td:nth-child(2) {
+            width: 70px;
+            text-align: right;
+            background-color: #CECECE;
+            border: 0px solid white; /* Modificar el ancho de la segunda columna */
+            padding: 2px;
+        }
+       
+         .centrar-texto {
+            text-align: center; /* Alinear el texto al centro */
+        }
+        
+   
+        h2 {
+            font-size: 13px;
+            font-family: 'Lexend', sans-serif;
+            margin-bottom: -14px; /* Reduce el margen inferior del título */
+            line-height: 1; /* Controla la altura de línea dentro del título */
+            padding: 0px;
+            margin-top: -7px;
+           
+        }
+
+        body {
+          width: 6.7cm;
+          height: 14cm;
+          margin: 0 auto;
+
+          
+    
+        
+        
+        }
+        table, th, td {
+   
+    border-collapse: collapse; /* Borde sólido de 1 píxel en color negro */
+    width: 100%;
+    border: 0px solid black;
+    
+  }
+  td {
+    font-size: 12.5px;
+    font-family: Arial, sans-serif;
+    padding: 2px;
+  }
+  th {
+    font-size: 12px;
+    padding: 6px;
+    font-family: 'oswald', sans-serif;
+    background-color: #CECECE;
+    border-top: 2px dashed black;
+    border-bottom: 2px dashed black;
+  }
+ .red {
+            color: red;
+            font-weight: bold;
+            font-size: 14px; /* Aumenta el tamaño del signo de exclamación */
+        }
+@page {
+    margin: 1mm; /* Márgenes personalizados */
+}
+@media print {
+  table {
+    background-color: inherit; /* Asegura que el fondo no se elimine */
+  }
+}
+            
+      </style>
+   <script>
+    // Función para obtener los parámetros de la URL
+    function getQueryParams() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const campos = ["Nombre", "Fecha", "Hora", "cantbombon", "imp_bombon", "cant_granizado", "imp_granizado", "cant_arbolito", "imp_arbolito", "cant_gemelo", 
+                      "imp_agua", "cant_tamarindo", "cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante", 
+                      "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino", 
+                      "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento", 
+                      "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo"];
+
+      // Rellenar los campos si existen en los parámetros de la URL
+      campos.forEach(campo => {
+        const valor = urlParams.get(campo);
+        if (valor !== null) {
+        const elemento = document.getElementById(campo);
+                    // Verificar si el valor comienza con "!"
+                    if (valor.startsWith("!")) {
+                        const cleanValue = valor.slice(1); // Remover "!"
+                        elemento.innerHTML = `<span class="red">!</span>${cleanValue}`;
+                    } else {
+                        elemento.innerHTML = valor;
+                    }
+                }
+            });
+    
+     // Ocultar filas si "SOB" y "MONTO" están vacíos o son cero
+document.querySelectorAll("tbody tr").forEach(tr => {
+    const SOBTd = tr.querySelector("td:nth-child(2)"); // Columna SOB (segunda columna)
+    const MontoTd = tr.querySelector("td:nth-child(5)"); // Columna MONTO (quinta columna)
+
+    if (SOBTd && MontoTd) {
+        const SOB = SOBTd.innerText.trim(); // Obtener el valor de SOB
+        const Monto = MontoTd.innerText.trim(); // Obtener el valor de MONTO
+
+        // Verificar si ambas celdas están vacías o tienen el valor "0"
+        if ((SOB === "" || SOB === "0") && (Monto === "" || Monto === "0")) {
+            tr.style.display = "none"; // Ocultar la fila
+        } else {
+            tr.style.display = ""; // Mostrar la fila si tiene valores válidos
+        }
+    }
+});
+    function ocultarFilasTotales() {
+        // Obtener las filas por su ID
+        const filaDescuento = document.getElementById("row_descuento");
+        const filaRecargo = document.getElementById("row_recargo");
+
+        // Función para extraer solo el valor numérico de la celda
+        function obtenerValorNumerico(celda) {
+            if (!celda) return 0; // Si la celda no existe, retorna 0
+            let texto = celda.textContent.trim(); // Obtener el texto y limpiar espacios
+            let numero = parseFloat(texto.replace(/[^\d.-]/g, "")); // Extraer solo el número
+            return isNaN(numero) ? 0 : numero; // Si no es número, retorna 0
+        }
+
+        // Obtener los valores numéricos de las celdas de descuento y recargo
+        const valorDescuento = filaDescuento ? obtenerValorNumerico(filaDescuento.cells[1]) : 0;
+        const valorRecargo = filaRecargo ? obtenerValorNumerico(filaRecargo.cells[1]) : 0;
+
+        // Ocultar la fila si el valor es 0
+        if (valorDescuento === 0) {
+            filaDescuento.style.display = "none";
+        }
+        if (valorRecargo === 0) {
+            filaRecargo.style.display = "none";
+        }
+    }
+
+    // Ejecutar la función después de cargar los valores
+    setTimeout(ocultarFilasTotales, 100);
+       
+      // Retrasar la impresión para que se reflejen los cambios en el DOM
+        setTimeout(() => {
+            window.print();
+            
+        }, 200); // Espera 200ms antes de imprimir
+    }
+    window.onafterprint = window.close;
+    window.onload = getQueryParams; // Ejecutar al cargar la página
+
+  </script>
+</head>
+<body onload="getQueryParams()" onfocus="window.close()">
+    <div class="centrar-texto">
+        <img src="Primavera2.png" alt="Logo de Heladería Primavera" style="width: 130px; height: auto; margin-bottom: -27px; margin-top: 10px;">
+        <p style="font-size: 10px;font-family: Arial, sans-serif;border-bottom: -10px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="15" viewBox="0 0 48 48" style="vertical-align: middle;">
+            <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"></path><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"></path><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"></path><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"></path>
+            </svg>73196102 - 72627865</p> 
+       <h2>TICKET DE VENTA</h2>
+    </div>
+    
+    <div class="container">    
+      <p>Para:<span style="margin-left: 3px;" id=Nombre></span>
+        Fecha:<span style="padding-left: 3px;  display: inline-block; white-space: nowrap; word-spacing: -1px;" id=Fecha></span>
+        H:<span style="margin-left: 3px;" id="Hora"></span></p>
+    </div>   
+        
+    <table class="primera-table">
+    <thead>
+        <tr>
+            <th>PRODUCTO</th>
+            <th>SOB</th>
+            <th>VEND</th>
+            <th>P.UNI</th>
+            <th>MONTO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Bombón</td>
+            <td id="sob_bombon">1</td>
+            <td id="cantbombon"></td>
+            <td>1</td>
+            <td id="imp_bombon"></td>
+        </tr>
+        <tr>
+            <td>Granizado</td>
+            <td id="sob_granizado">1</td>
+            <td id="cant_granizado"></td>
+            <td>1</td>
+            <td id="imp_granizado"></td>
+        </tr>
+        <tr class="borde-especial">
+            <td>Arbolito</td>
+            <td id="sob_arbolito">1</td>
+            <td id="cant_arbolito"></td>
+            <td>1</td>
+            <td id="imp_arbolito"></td>
+        </tr>
+        <tr class="borde-especial">
+            <td>P_Agua</td>
+            <td id="sob_agua">1</td>
+            <td id="cant_colores"></td>
+            <td>0.6</td>
+            <td id="imp_agua"></td>
+        </tr>
+        <tr class="borde-especial">
+            <td>Wafer</td>
+            <td id="sob_wafer">1</td>
+            <td id="cant_wafer"></td>
+            <td>1.2</td>
+            <td id="imp_wafer"></td>
+        </tr>
+        <tr class="borde-especial">
+            <td>Canaleado</td>
+            <td id="sob_canaleado">1</td>
+            <td id="cant_canaleado"></td>
+            <td>1.1</td>
+            <td id="imp_canaleado"></td>
+        </tr>
+        <tr>
+            <td>Cono</td>
+            <td id="sob_cono">1</td>
+            <td id="cant_cono"></td>
+            <td>2</td>
+            <td id="imp_cono"></td>
+        </tr>
+        <tr class="borde-especial">
+            <td>Bombonato</td>
+            <td id="sob_bombonato">1</td>
+            <td id="cant_bombonato"></td>
+            <td>2</td>
+            <td id="imp_bombonato"></td>
+        </tr>
+        <tr class="borde-especial">
+            <td>Vaso_tapa</td>
+            <td id="sob_tapa">1</td>
+            <td id="cant_vasotapa"></td>
+            <td>1.5</td>
+            <td id="imp_vasotapa"></td>
+        </tr>
+        <tr>
+            <td>Crocante</td>
+            <td id="sob_crocante">1</td>
+            <td id="cant_crocante"></td>
+            <td>2.5</td>
+            <td id="imp_crocante"></td>
+        </tr>
+        <tr>
+            <td>Chococo</td>
+            <td id="sob_chococo">1</td>
+            <td id="cant_chococo"></td>
+            <td>2.5</td>
+            <td id="imp_chococo"></td>
+        </tr>
+        <tr class="borde-especial">
+            <td>Sandwich</td>
+            <td id="sob_sandwich">1</td>
+            <td id="cant_sandwich"></td>
+            <td>2.5</td>
+            <td id="imp_sandwich"></td>
+        </tr>  
+        
+        <tr>
+            <td>Festino</td>
+            <td id="sob_festino">1</td>
+            <td id="cant_festino"></td>
+            <td>3.5</td>
+            <td id="imp_festino"></td>
+        </tr>
+       
+    </tbody>
+</table>
+<table class="tabla_total-table">
+    <tr>
+        <td>SUBTOTAL:</td>
+        <td id="subtotal"></td>
+    </tr>
+    <tr id="row_descuento">
+        <td>DESCUENTO:</td>
+        <td id="descuento"></td>
+    </tr>
+    <tr id="row_recargo">
+        <td>RECARGO:</td>
+        <td id="recargo"></td>
+    </tr>
+    <tr>
+        <td><strong>PAGAR:</strong></td>
+        <td><strong id="pagar"></strong></td>
+    </tr>
+</table>
+<p style="font-size: 11px;font-family: Arial, sans-serif; margin-top: 2mm;">Sal: <span id="saldo" style="color: red;"></span></p>  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var saldoSpan = document.getElementById("saldo");
+        var saldoParrafo = saldoSpan.parentElement;
+
+        function verificarSaldo() {
+            if (!saldoSpan.textContent.trim() || saldoSpan.textContent.trim() === "0" || saldoSpan.textContent.trim() === "0.00") {
+                saldoParrafo.style.display = "none"; // Oculta el párrafo
+            } else {
+                saldoParrafo.style.display = "block"; // Muestra el párrafo si hay saldo
+            }
+        }
+
+        // Ejecuta la función inicialmente
+        verificarSaldo();
+
+        // Si el saldo se actualiza dinámicamente, detecta cambios en su contenido
+        var observer = new MutationObserver(verificarSaldo);
+        observer.observe(saldoSpan, { childList: true, subtree: true });
+    });
+</script>
+  
+</body>
+</html>
