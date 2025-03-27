@@ -216,6 +216,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
             
         }, 200); // Espera 200ms antes de imprimir
     }
+    window.onafterprint = window.close;
     window.onload = getQueryParams; // Ejecutar al cargar la página
 
   </script>
@@ -288,13 +289,6 @@ document.querySelectorAll("tbody tr").forEach(tr => {
             <td>1.1</td>
             <td id="imp_canaleado"></td>
         </tr>
-          <tr class="borde-especial">
-            <td>Vaso_tapa</td>
-            <td id="sob_tapa">1</td>
-            <td id="cant_vasotapa"></td>
-            <td>1.5</td>
-            <td id="imp_vasotapa"></td>
-        </tr>
         <tr>
             <td>Cono</td>
             <td id="sob_cono">1</td>
@@ -309,7 +303,13 @@ document.querySelectorAll("tbody tr").forEach(tr => {
             <td>2</td>
             <td id="imp_bombonato"></td>
         </tr>
-      
+        <tr class="borde-especial">
+            <td>Vaso_tapa</td>
+            <td id="sob_tapa">1</td>
+            <td id="cant_vasotapa"></td>
+            <td>1.5</td>
+            <td id="imp_vasotapa"></td>
+        </tr>
         <tr>
             <td>Crocante</td>
             <td id="sob_crocante">1</td>
@@ -360,7 +360,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
         <td><strong id="pagar"></strong></td>
     </tr>
 </table>
-<p style="font-size: 11px;font-family: Arial, sans-serif; margin-top: 3mm;text-align: right;">Sal: <span id="saldo" style="color: red;"></span></p>  
+<p style="font-size: 11px;font-family: Arial, sans-serif; margin-top: 2mm;">Sal: <span id="saldo" style="color: red;"></span></p>  
   <script>
     document.addEventListener("DOMContentLoaded", function () {
         var saldoSpan = document.getElementById("saldo");
