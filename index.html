@@ -139,15 +139,15 @@
 }
             
       </style>
-   <script>
+    <script>
     // Función para obtener los parámetros de la URL
     function getQueryParams() {
       const urlParams = new URLSearchParams(window.location.search);
-      const campos = ["Nombre", "Fecha", "Hora", "cantbombon", "imp_bombon", "cant_granizado", "imp_granizado", "cant_arbolito", "imp_arbolito", "cant_gemelo", 
-                      "imp_agua", "cant_tamarindo", "cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante", 
-                      "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino", 
-                      "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento", 
-                      "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo"];
+    const campos = ["Nombre", "Fecha", "Hora", "cantbombon", "imp_bombon", "cant_granizado", "imp_granizado", "cant_arbolito", "imp_arbolito", "cant_gemelo",
+                "imp_agua", "cant_gem_tamarin", "imp_gem_tamarin", "cant_tamarindo", "cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante",
+                "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino",
+                "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento",
+                "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua","sob_gem_tamarin", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo"];
 
       // Rellenar los campos si existen en los parámetros de la URL
       campos.forEach(campo => {
@@ -251,84 +251,92 @@ document.querySelectorAll("tbody tr").forEach(tr => {
             <td>Bombón</td>
             <td id="sob_bombon">1</td>
             <td id="cantbombon"></td>
-            <td>1</td>
+            <td>1.30</td>
             <td id="imp_bombon"></td>
         </tr>
         <tr>
             <td>Granizado</td>
             <td id="sob_granizado">1</td>
             <td id="cant_granizado"></td>
-            <td>1</td>
+            <td>1.30</td>
             <td id="imp_granizado"></td>
         </tr>
         <tr class="borde-especial">
             <td>Arbolito</td>
             <td id="sob_arbolito">1</td>
             <td id="cant_arbolito"></td>
-            <td>1</td>
+            <td>1.30</td>
             <td id="imp_arbolito"></td>
         </tr>
         <tr class="borde-especial">
-            <td>P_Agua</td>
+            <td>P_Agua(color)</td>
             <td id="sob_agua">1</td>
             <td id="cant_colores"></td>
-            <td>0.6</td>
+            <td>0.60</td>
             <td id="imp_agua"></td>
+        </tr>
+        <!-- Nueva fila Gem/Tamarin añadida justo debajo de P_Agua -->
+        <tr class="borde-especial">
+            <td>Gem/Tamarin</td>
+            <td id="sob_gem_tamarin">1</td>
+            <td id="cant_gem_tamarin"></td>
+            <td>0.80</td>
+            <td id="imp_gem_tamarin"></td>
         </tr>
         <tr class="borde-especial">
             <td>Wafer</td>
             <td id="sob_wafer">1</td>
             <td id="cant_wafer"></td>
-            <td>1.2</td>
+            <td>1.50</td>
             <td id="imp_wafer"></td>
         </tr>
         <tr class="borde-especial">
             <td>Canaleado</td>
             <td id="sob_canaleado">1</td>
             <td id="cant_canaleado"></td>
-            <td>1.1</td>
+            <td>1.40</td>
             <td id="imp_canaleado"></td>
         </tr>
         <tr>
             <td>Cono</td>
             <td id="sob_cono">1</td>
             <td id="cant_cono"></td>
-            <td>2</td>
+            <td>2.50</td>
             <td id="imp_cono"></td>
         </tr>
         <tr class="borde-especial">
             <td>Bombonato</td>
             <td id="sob_bombonato">1</td>
             <td id="cant_bombonato"></td>
-            <td>2</td>
+            <td>2.50</td>
             <td id="imp_bombonato"></td>
         </tr>
         <tr class="borde-especial">
             <td>Vaso_tapa</td>
             <td id="sob_tapa">1</td>
             <td id="cant_vasotapa"></td>
-            <td>1.5</td>
+            <td>2.00</td>
             <td id="imp_vasotapa"></td>
         </tr>
         <tr>
             <td>Crocante</td>
             <td id="sob_crocante">1</td>
             <td id="cant_crocante"></td>
-            <td>2.5</td>
+            <td>3.00</td>
             <td id="imp_crocante"></td>
         </tr>
         <tr>
             <td>Chococo</td>
             <td id="sob_chococo">1</td>
             <td id="cant_chococo"></td>
-            <td>2.5</td>
+            <td>3.00</td>
             <td id="imp_chococo"></td>
         </tr>
         <tr class="borde-especial">
             <td>Sandwich</td>
             <td id="sob_sandwich">1</td>
             <td id="cant_sandwich"></td>
-            <td>2.5</td>
+            <td>3.50</td>
             <td id="imp_sandwich"></td>
         </tr>  
         
@@ -336,7 +344,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
             <td>Festino</td>
             <td id="sob_festino">1</td>
             <td id="cant_festino"></td>
-            <td>3.5</td>
+            <td>4.00</td>
             <td id="imp_festino"></td>
         </tr>
        
