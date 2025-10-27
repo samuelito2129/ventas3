@@ -147,7 +147,7 @@
                 "imp_agua", "cant_gem_tamarin", "imp_gem_tamarin", "cant_tamarindo", "cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante",
                 "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino",
                 "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento",
-                "recargo", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua","sob_gem_tamarin", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo"];
+                "recargo", "otros", "pagar", "sob_bombon", "sob_granizado", "sob_arbolito", "sob_agua","sob_gem_tamarin", "sob_cono", "sob_bombonato", "sob_crocante", "sob_chococo", "sob_sandwich", "sob_tapa", "sob_festino", "sob_canaleado", "sob_wafer", "saldo"];
 
       // Rellenar los campos si existen en los parámetros de la URL
       campos.forEach(campo => {
@@ -185,6 +185,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
         // Obtener las filas por su ID
         const filaDescuento = document.getElementById("row_descuento");
         const filaRecargo = document.getElementById("row_recargo");
+    const filaOtro = document.getElementById("row_otro");
 
         // Función para extraer solo el valor numérico de la celda
         function obtenerValorNumerico(celda) {
@@ -197,6 +198,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
         // Obtener los valores numéricos de las celdas de descuento y recargo
         const valorDescuento = filaDescuento ? obtenerValorNumerico(filaDescuento.cells[1]) : 0;
         const valorRecargo = filaRecargo ? obtenerValorNumerico(filaRecargo.cells[1]) : 0;
+    const valorOtro = filaOtro ? obtenerValorNumerico(filaOtro.cells[1]) : 0;
 
         // Ocultar la fila si el valor es 0
         if (valorDescuento === 0) {
@@ -204,6 +206,9 @@ document.querySelectorAll("tbody tr").forEach(tr => {
         }
         if (valorRecargo === 0) {
             filaRecargo.style.display = "none";
+        }
+        if (valorOtro === 0) {
+            filaOtro.style.display = "none";
         }
     }
 
@@ -363,8 +368,12 @@ document.querySelectorAll("tbody tr").forEach(tr => {
         <td>RECARGO:</td>
         <td id="recargo"></td>
     </tr>
+    <tr id="row_otro">
+        <td>OTROS:</td>
+        <td id="otros"></td>
+    </tr>
     <tr>
-        <td><strong>PAGAR:</strong></td>
+        <td><strong>TOTAL:</strong></td>
         <td><strong id="pagar"></strong></td>
     </tr>
 </table>
@@ -393,4 +402,5 @@ document.querySelectorAll("tbody tr").forEach(tr => {
   
 </body>
 </html>
+
 
