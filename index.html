@@ -169,7 +169,7 @@
     // Función para obtener los parámetros de la URL
     function getQueryParams() {
       const urlParams = new URLSearchParams(window.location.search);
-    const campos = ["Nombre", "Fecha", "Hora", "cantbombon", "imp_bombon", "cant_granizado", "imp_granizado", "cant_arbolito", "imp_arbolito", "cant_gemelo",
+    const campos = ["Nombre","apellido", "Fecha", "Hora", "cantbombon", "imp_bombon", "cant_granizado", "imp_granizado", "cant_arbolito", "imp_arbolito", "cant_gemelo",
                 "imp_agua", "cant_gem_tamarin", "imp_gem_tamarin", "cant_tamarindo", "cant_colores", "cant_cono", "imp_cono", "cant_bombonato", "imp_bombonato", "cant_crocante",
                 "imp_crocante", "cant_chococo", "imp_chococo", "cant_sandwich", "imp_sandwich", "cant_vasotapa", "imp_vasotapa", "cant_festino",
                 "imp_festino", "cant_canaleado", "imp_canaleado", "cant_wafer", "imp_wafer", "subtotal", "descuento",
@@ -263,7 +263,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
             <td><img src="primavera.png" alt="Logo Primavera" style="width:1.5cm; height: 0.8cm;vertical-align: middle;"></td>
             <td style=" font-size: 12px; 
             font-family: Arial, sans-serif;">
-            Para: <span id="Nombre"></span><br>
+            Para: <span id="Nombre"></span> <span id="apellido"></span><br>
         Fecha: <span id="Fecha"></span><br>
     Hora: <span id="Hora"></span></td>
         </tr>
