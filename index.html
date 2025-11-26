@@ -263,9 +263,20 @@ document.querySelectorAll("tbody tr").forEach(tr => {
             <td><img src="primavera.png" alt="Logo Primavera" style="width:1.5cm; height: 0.8cm;vertical-align: middle;"></td>
             <td style=" font-size: 12px; 
             font-family: Arial, sans-serif;">
-            Para: <span id="Nombre"></span> <span id="apellido"></span><br>
-        Fecha: <span id="Fecha"></span><br>
-    Hora: <span id="Hora"></span></td>
+             <div style="display: grid; grid-template-columns: auto 1fr; gap: 2px; align-items: baseline;">
+                <div>Para:</div>
+                <div style="display: inline;">
+                    <span id="Nombre"></span> 
+                    <span id="apellido">
+                    </span>
+                </div>
+                
+                <div>Fecha:</div>
+                <div id="Fecha"></div>
+                
+                <div>Hora:</div>
+                <div id="Hora"></div>
+            </div></td>
         </tr>
     </table>
     
@@ -434,6 +445,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
   
 </body>
 </html>
+
 
 
 
