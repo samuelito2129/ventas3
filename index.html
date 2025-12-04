@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
+         .fijar_posicion {
+        position: absolute;
+        bottom: 0; /* Ajusta según sea necesario */
+        height: 1cm;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
         .tabla_encabezado {
              border-collapse: collapse;
             width: 100%;
@@ -420,7 +427,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
         <td style="font-size: 17px; border: 1px solid yellow;"><strong id="pagar"></strong></td>
     </tr>
 </table>
-<p style="font-size: 11px;font-family: Arial, sans-serif; margin-top: 2mm;">Sal: <span id="saldo" style="color: red;"></span></p>  
+<p class="fijar_posicion">Saldo: <span id="saldo" style="color: red;"></span></p>  
   <script>
     document.addEventListener("DOMContentLoaded", function () {
         var saldoSpan = document.getElementById("saldo");
@@ -445,6 +452,7 @@ document.querySelectorAll("tbody tr").forEach(tr => {
   
 </body>
 </html>
+
 
 
 
